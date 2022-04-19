@@ -4,16 +4,28 @@
   "description": "",
   "type": "commonjs",
   "scripts": {
-    "pb:gen": "./gen.sh greet calculator blog",
+    "pb:gen": "./scripts/gen.sh greet calculator blog",
+    "pb:win:gen": "./scripts/gen.sh greet calculator blog",
+
     "greet:server": "node greet/server/index.js",
     "greet:client": "node greet/client/index.js",
+    "greet:pb:gen": "./scripts/gen.sh greet",
+    "greet:pb:win:gen": "./scripts/gen.sh greet",
+
     "calculator:server": "node calculator/server/index.js",
     "calculator:client": "node calculator/client/index.js",
-    "greet:pb:gen": "./gen.sh greet",
+    "calculator:pb:gen": "./scripts/gen.sh calculator",
+    "calculator:pb:win:gen": "./scripts/gen.sh calculator",
+
     "blog:server": "node blog/server/index.js",
-    "blog:pb:gen": "./gen.sh blog",
-    "ssl:gen": "cd ssl && ./ssl.sh && cd ..",
-    "clean": "find . -type f -name '*_pb.js' -not -path './node_modules/**/*_pb.js' -delete",
+    "blog:client": "node blog/client/index.js",    
+    "blog:pb:gen": "./scripts/gen.sh blog",
+    "blog:pb:win:gen": "./scripts/gen.sh blog",
+
+    "ssl:gen": "cd ssl && ../scripts/ssl.sh && cd ..",
+    "ssl:win:gen": "cd ssl && ../scripts/ssl.ps1 && cd ..",
+
+    "clean": "find . -type f -name '*_pb.js' -not -path './node_modules/**/*_pb.js' -delete && rm ssl/*.crt ssl/*.key ssl/*.csr ssl/*.pem",
     "lint": "npx eslint --fix ./",
     "test": "nyc mocha --recursive --timeout 60000"
   },
