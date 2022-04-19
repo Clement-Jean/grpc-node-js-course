@@ -137,3 +137,6 @@ dist
 
 ## Mac
 .DS_Store
+
+## Proto
+*_pb.js
