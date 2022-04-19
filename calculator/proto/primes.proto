@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package calculator;
+
+message PrimeRequest {
+  int64 number = 1;
+}
+
+message PrimeResponse {
+  int64 result = 1;
+}

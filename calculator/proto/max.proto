@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package calculator;
+
+message MaxRequest {
+  int32 number = 1;
+}
+
+message MaxResponse {
+  int32 result = 1;
+}

@@ -1,0 +1,39 @@
+{
+  "name": "grpc-node-js-course",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "scripts": {
+    "pb:gen": "./gen.sh greet calculator blog",
+    "greet:server": "node greet/server/index.js",
+    "greet:client": "node greet/client/index.js",
+    "calculator:server": "node calculator/server/index.js",
+    "calculator:client": "node calculator/client/index.js",
+    "greet:pb:gen": "./gen.sh greet",
+    "blog:server": "node blog/server/index.js",
+    "blog:pb:gen": "./gen.sh blog",
+    "ssl:gen": "cd ssl && ./ssl.sh && cd ..",
+    "clean": "find . -type f -name '*_pb.js' -not -path './node_modules/**/*_pb.js' -delete",
+    "lint": "npx eslint --fix ./",
+    "test": "nyc mocha --recursive --timeout 60000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/Clement-Jean/grpc-node-course"
+  },
+  "author": "Clement Jean",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.1",
+    "google-protobuf": "^3.20.0",
+    "mongodb": "4.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-config-google": "^0.14.0",
+    "grpc-tools": "^1.11.2",
+    "mocha": "^9.2.2",
+    "mongodb-memory-server": "^8.4.2",
+    "nyc": "^15.1.0"
+  }
+}

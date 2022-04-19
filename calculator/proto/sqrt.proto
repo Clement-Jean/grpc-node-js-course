@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package calculator;
+
+message SqrtRequest {
+  int32 number = 1; // could be uint32 number = 1;
+}
+
+message SqrtResponse {
+  double result = 1;
+}
