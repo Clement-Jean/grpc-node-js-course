@@ -1,0 +1,12 @@
+{
+  "all": true,
+  "include": [
+    "**/*.js"
+  ],
+  "exclude": [
+    "test/*",
+    "constants.js",
+    "**/*_pb.js",
+    "**/index.js"
+  ]
+}
