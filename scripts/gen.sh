@@ -16,4 +16,3 @@ for (( j = 0; j < argc; ++j )); do
     --js_out=import_style=commonjs:${argv[j]}/proto/                            \
     $(find ${argv[j]}/proto/ -type f -name "*.proto" -not -path "${argv[j]}/proto/${argv[j]}.proto")
 done
-
