@@ -26,7 +26,7 @@
     "ssl:win:gen": "cd ssl && powershell -ExecutionPolicy unrestricted ../scripts/ssl.ps1 && cd ..",
 
     "clean": "find . -type f -name '*_pb.js' -not -path './node_modules/**/*_pb.js' -delete && rm ssl/*.crt ssl/*.key ssl/*.csr ssl/*.pem",
-    "clean:win": "powershell \"Get-ChildItem -Filter *_pb.js -Recurse $pwd | Foreach-Object { if ($_.FullName -inotmatch 'node_modules') { rm $_.FullName  } }\"",
+    "clean:win": "powershell \"Get-ChildItem -Filter *_pb.js -Recurse $pwd | Foreach-Object { if ($_.FullName -inotmatch 'node_modules') { rm $_.FullName  } }\" && powershell Remove-Item ssl/*.crt, ssl/*.key, ssl/*.csr, ssl/*.pem",
     "lint": "npx eslint --fix ./",
     "test": "nyc mocha --recursive --timeout 60000"
   },
