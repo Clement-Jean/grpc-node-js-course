@@ -5,7 +5,7 @@ const serviceImpl = require('./service_impl');
 
 const addr = '0.0.0.0:50051';
 
-async function cleanup(server) {
+function cleanup(server) {
   console.log('Cleanup');
 
   if (server) {
