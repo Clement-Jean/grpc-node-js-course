@@ -10,10 +10,10 @@ const {DATA} = require('../../constants');
 // eslint-disable-next-line no-unused-vars
 function doSum(client) {
   console.log('doSum was invoked');
-  const req = new SumRequest();
+  const req = new SumRequest()
+      .setFirstNumber(1)
+      .setSecondNumber(1);
 
-  req.setFirstNumber(1);
-  req.setSecondNumber(1);
   client.sum(req, (err, res) => {
     if (err) {
       return console.log(err);

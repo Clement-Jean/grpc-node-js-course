@@ -7,15 +7,15 @@ const {DATA} = require('../../constants');
 // eslint-disable-next-line no-unused-vars
 function doGreet(client) {
   console.log('doGreet was invoked');
-  const req = new GreetRequest();
+  const req = new GreetRequest()
+      .setFirstName('Clement');
 
-  req.setFirstName('Clement');
   client.greet(req, (err, res) => {
     if (err) {
       return console.log(err);
     }
 
-    console.log('Greet: ', res.getResult());
+    console.log(`Greet: ${res.getResult()}`);
   });
 }
 
