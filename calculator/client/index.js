@@ -19,7 +19,7 @@ function doSum(client) {
       return console.log(err);
     }
 
-    console.log('Sum: ', res.getResult());
+    console.log(`Sum: ${res.getResult()}`);
   });
 }
 
@@ -32,7 +32,7 @@ function doPrimes(client) {
   const call = client.primes(req);
 
   call.on(DATA, (res) => {
-    console.log('Primes: ', res.getResult());
+    console.log(`Primes: ${res.getResult()}`);
   });
 }
 
@@ -45,7 +45,7 @@ function doAvg(client) {
       return console.error(err);
     }
 
-    console.log('Avg: ', res.getResult());
+    console.log(`Avg: ${res.getResult()}`);
   });
 
   numbers.map((number) => {
@@ -83,7 +83,7 @@ function doSqrt(client, n) {
       return console.log(err);
     }
 
-    console.log('Sqrt: ', res.getResult());
+    console.log(`Sqrt: ${res.getResult()}`);
   });
 }
 

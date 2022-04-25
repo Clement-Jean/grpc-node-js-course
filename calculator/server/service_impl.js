@@ -28,7 +28,7 @@ exports.primes = (call, _) => {
       call.write(res);
       number /= divisor;
     } else {
-      divisor++;
+      ++divisor;
     }
   }
 

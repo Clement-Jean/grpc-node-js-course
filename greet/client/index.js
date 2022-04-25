@@ -22,13 +22,12 @@ function doGreet(client) {
 // eslint-disable-next-line no-unused-vars
 function doGreetManyTimes(client) {
   console.log('doGreetManyTimes was invoked');
-  const req = new GreetRequest();
-
-  req.setFirstName('Clement');
+  const req = new GreetRequest()
+      .setFirstName('Clement');
   const call = client.greetManyTimes(req);
 
   call.on(DATA, (res) => {
-    console.log('GreetManyTimes: ', res.getResult());
+    console.log(`GreetManyTimes: ${res.getResult()}`);
   });
 }
 
@@ -41,7 +40,7 @@ function doLongGreet(client) {
       return console.error(err);
     }
 
-    console.log('LongGreet: ', res.getResult());
+    console.log(`LongGreet: ${res.getResult()}`);
   });
 
   names.map((name) => {
@@ -81,7 +80,7 @@ function doGreetWithDeadline(client, ms) {
       return console.log(err);
     }
 
-    console.log('Greet: ', res.getResult());
+    console.log(`GreetWithDeadline: ${res.getResult()}`);
   });
 }
 
