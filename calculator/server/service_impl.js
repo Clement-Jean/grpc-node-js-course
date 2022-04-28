@@ -42,7 +42,7 @@ exports.avg = (call, callback) => {
 
   call.on(DATA, (req) => {
     total += req.getNumber();
-    count++;
+    ++count;
   });
 
   call.on(END, () => {

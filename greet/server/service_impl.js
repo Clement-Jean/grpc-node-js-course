@@ -41,11 +41,11 @@ exports.longGreet = (call, callback) => {
 exports.greetEveryone = (call, _) => {
   console.log('GreetEveryone was invoked');
   call.on(DATA, (req) => {
-    console.log('Received request: ' + req);
+    console.log(`Received request: ${req}`);
     const res = new pb.GreetResponse()
         .setResult(`Hello ${req.getFirstName()}`);
 
-    console.log('Sending response: ' + res);
+    console.log(`Sending response: ${res}`);
     call.write(res);
   });
 
