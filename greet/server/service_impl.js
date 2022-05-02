@@ -37,7 +37,6 @@ exports.longGreet = (call, callback) => {
   });
 };
 
-
 exports.greetEveryone = (call, _) => {
   console.log('GreetEveryone was invoked');
   call.on(DATA, (req) => {
@@ -55,9 +54,11 @@ exports.greetEveryone = (call, _) => {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 exports.greetWithDeadline = async (call, callback) => {
-  for (let i = 0; i < 3; i++) {
+  console.log('GreetWithDeadline was invoked');
+
+  for (let i = 0; i < 3; ++i) {
     if (call.cancelled) {
-      return console.log('The client canceled the request!');
+      return console.log('The client cancelled the request!');
     }
     await sleep(1000);
   }

@@ -75,17 +75,18 @@ exports.max = (call, _) => {
 };
 
 exports.sqrt = (call, callback) => {
+  console.log('Sqrt was invoked');
   const number = call.request.getNumber();
 
   if (number < 0) {
     callback({
       code: grpc.status.INVALID_ARGUMENT,
-      message: 'Number cannot be negative, received: ' + number,
+      message: `Number cannot be negative, received: ${number}`,
     });
   }
 
-  const response = new SqrtResponse()
+  const res = new SqrtResponse()
       .setResult(Math.sqrt(number));
 
-  callback(null, response);
+  callback(null, res);
 };

@@ -70,9 +70,9 @@ function doGreetEveryone(client) {
 // eslint-disable-next-line no-unused-vars
 function doGreetWithDeadline(client, ms) {
   console.log('doGreetWithDeadline was invoked');
-  const req = new GreetRequest();
+  const req = new GreetRequest()
+      .setFirstName('Clement');
 
-  req.setFirstName('Clement');
   client.greetWithDeadline(req, {
     deadline: new Date(Date.now() + ms),
   }, (err, res) => {
