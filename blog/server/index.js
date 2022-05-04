@@ -13,6 +13,8 @@ const mongoClient = new MongoClient(uri, {
 global.collection = undefined;
 
 async function cleanup(server) {
+  console.log('Cleanup');
+
   if (server) {
     await mongoClient.close();
     server.forceShutdown();
@@ -20,7 +22,7 @@ async function cleanup(server) {
 }
 
 async function main() {
-  process.on('SIGINT', async () => {
+  process.on('SIGINT', () => {
     console.log('Caught interrupt signal');
     cleanup(server);
   });

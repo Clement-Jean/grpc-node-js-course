@@ -1,5 +1,5 @@
 const grpc = require('@grpc/grpc-js');
-const pb = require('../proto/blog_pb');
+const {Blog, BlogId} = require('../proto/blog_pb');
 const {ObjectId} = require('mongodb');
 const {Empty} = require('google-protobuf/google/protobuf/empty_pb');
 
@@ -12,7 +12,7 @@ function blogToDocument(blog) {
 }
 
 function documentToBlog(doc) {
-  return new pb.Blog()
+  return new Blog()
       .setId(doc._id.toString())
       .setAuthorId(doc.author_id)
       .setTitle(doc.title)
@@ -59,7 +59,7 @@ exports.createBlog = async (call, callback) => {
   await collection.insertOne(data).then((res) => {
     checkNotAcknowledged(res, callback);
     const id = res.insertedId.toString();
-    const blogId = new pb.BlogId().setId(id);
+    const blogId = new BlogId().setId(id);
 
     callback(null, blogId);
   }).catch((err) => internal(err, callback));
@@ -81,8 +81,8 @@ exports.updateBlog = async (call, callback) => {
       {_id: oid},
       {$set: blogToDocument(call.request)},
   ).then((res) => {
-    checkNotAcknowledged(res, callback);
     checkNotFound(res, callback);
+    checkNotAcknowledged(res, callback);
     callback(null, new Empty());
   }).catch((err) => internal(err, callback));
 };
@@ -98,8 +98,8 @@ exports.deleteBlog = async (call, callback) => {
   const oid = checkOID(call.request.getId(), callback);
 
   await collection.deleteOne({_id: oid}).then((res) => {
-    checkNotAcknowledged(res, callback);
     checkNotFound(res, callback);
+    checkNotAcknowledged(res, callback);
     callback(null, new Empty());
   }).catch((err) => internal(err, callback));
 };
