@@ -87,12 +87,15 @@ exports.updateBlog = async (call, callback) => {
   }).catch((err) => internal(err, callback));
 };
 
-exports.listBlogs = async (call, callback) =>
+exports.listBlogs = async (call, _) =>
   await collection.find()
       .map((doc) => documentToBlog(doc))
       .forEach((blog) => call.write(blog))
       .then(() => call.end())
-      .catch((err) => internal(err, callback));
+      .catch((err) => call.destroy({
+        code: grpc.status.INTERNAL,
+        message: 'A message',
+      }));
 
 exports.deleteBlog = async (call, callback) => {
   const oid = checkOID(call.request.getId(), callback);
