@@ -43,7 +43,8 @@ function readBlog(client, id) {
 function updateBlog(client, id) {
   console.log('---updateBlog was invoked---');
   return new Promise((resolve, reject) => {
-    const req = new Blog().setId(id)
+    const req = new Blog()
+        .setId(id)
         .setAuthorId('not Clement')
         .setTitle('My First Blog (edited)')
         .setContent('Content of the first blog, with some awesome additions!');
@@ -53,7 +54,7 @@ function updateBlog(client, id) {
         reject(err);
       }
 
-      console.log(`Blog was updated!`);
+      console.log('Blog was updated!');
       resolve();
     });
   });
@@ -67,7 +68,7 @@ function listBlogs(client) {
     const call = client.listBlogs(req);
 
     call.on(DATA, (res) => {
-      console.log(res.toString());
+      console.log(res);
     });
 
     call.on(ERROR, (err) => {
