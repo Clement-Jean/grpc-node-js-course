@@ -1,3 +1,4 @@
+#!/bin/bash
 # USAGE: gen.sh PATH(s)
 # PATH: project path which contains a proto directory and
 #   a .proto named after the project (eg: blog, blog.proto)
