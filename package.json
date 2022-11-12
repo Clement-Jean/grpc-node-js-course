@@ -19,7 +19,7 @@
 
     "blog:db": "cd blog; docker-compose up; cd ..",
     "blog:server": "node blog/server/index.js",
-    "blog:client": "node blog/client/index.js",    
+    "blog:client": "node blog/client/index.js",
     "blog:pb:gen": "./scripts/gen.sh blog",
     "blog:pb:win:gen": "powershell -ExecutionPolicy unrestricted ./scripts/gen.ps1 blog",
 
@@ -39,16 +39,16 @@
   "author": "Clement Jean",
   "license": "ISC",
   "dependencies": {
-    "@grpc/grpc-js": "^1.7.1",
-    "google-protobuf": "^3.21.0",
-    "mongodb": "4.10"
+    "@grpc/grpc-js": "^1.7.3",
+    "google-protobuf": "^3.21.2",
+    "mongodb": "4.11"
   },
   "devDependencies": {
-    "eslint": "^8.24.0",
+    "eslint": "^8.27.0",
     "eslint-config-google": "^0.14.0",
-    "grpc-tools": "^1.11.2",
-    "mocha": "^10.0.0",
-    "mongodb-memory-server": "^8.9.3",
+    "grpc-tools": "^1.11.3",
+    "mocha": "^10.1.0",
+    "mongodb-memory-server": "^8.10.0",
     "nyc": "^15.1.0"
   }
 }
