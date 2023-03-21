@@ -14,7 +14,7 @@ for (( j = 0; j < argc; ++j )); do
     --js_out=import_style=commonjs:${argv[j]}/proto/                            \
     --grpc_out=grpc_js:${argv[j]}/proto/                                        \
     ${argv[j]}/proto/${argv[j]}.proto;
-  
+
   # Generate only Protobuf code for all the other .proto files (if any)
   # (eg: calculator/sum.proto)
   ./node_modules/.bin/grpc_tools_node_protoc -I ${argv[j]}/proto/                                   \
