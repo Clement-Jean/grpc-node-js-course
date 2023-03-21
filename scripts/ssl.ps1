@@ -7,7 +7,7 @@
 # server.crt: Server certificate signed by the CA (this would be sent back by the CA owner) - keep on server
 # server.pem: Conversion of server.key into a format gRPC likes (this shouldn't be shared)
 
-# Summary 
+# Summary
 # Private files: ca.key, server.key, server.pem, server.crt
 # "Share" files: ca.crt (needed by the client), server.csr (needed by the CA)
 
