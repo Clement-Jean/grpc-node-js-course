@@ -2,7 +2,7 @@
 
 ![Udemy](.github/badges/udemy.svg)
 
-## COUPON: `START_JULY`
+## COUPON: `START_AUG`
 
 ## Build
 
