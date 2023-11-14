@@ -39,16 +39,16 @@
   "author": "Clement Jean",
   "license": "ISC",
   "dependencies": {
-    "@grpc/grpc-js": "^1.8.12",
+    "@grpc/grpc-js": "^1.9.9",
     "google-protobuf": "^3.21.2",
-    "mongodb": "5.1"
+    "mongodb": "6.2"
   },
   "devDependencies": {
-    "eslint": "^8.36.0",
+    "eslint": "^8.53.0",
     "eslint-config-google": "^0.14.0",
     "grpc-tools": "^1.12.4",
     "mocha": "^10.2.0",
-    "mongodb-memory-server": "^8.12.1",
+    "mongodb-memory-server": "^9.0.1",
     "nyc": "^15.1.0"
   }
 }
