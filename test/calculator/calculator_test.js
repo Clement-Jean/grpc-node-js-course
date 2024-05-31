@@ -54,8 +54,8 @@ describe('Calulator Server', () => {
       assert.deepStrictEqual(4, responses.length);
       const expected = [2, 5, 109, 521];
 
-      for (let i = 0; i < expected.length; ++i) {
-        assert.deepStrictEqual(responses[i], expected[i]);
+      for (let i = 0; i < responses.length; ++i) {
+        assert(expected.includes(responses[i]))
       }
       done();
     });

@@ -19,7 +19,7 @@ exports.TestGrpcHelper = class {
               `0.0.0.0:${port}`,
               grpc.credentials.createInsecure(),
           );
-          this.server.start();
+       //   this.server.start();
         },
     );
   }

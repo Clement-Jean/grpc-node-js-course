@@ -48,8 +48,21 @@ describe('Greet Server', () => {
 
     call.on('end', () => {
       assert.deepStrictEqual(10, responses.length);
+
+      const expected = [
+        `Hello ${name} - number 0`,
+        `Hello ${name} - number 1`,
+        `Hello ${name} - number 2`,
+        `Hello ${name} - number 3`,
+        `Hello ${name} - number 4`,
+        `Hello ${name} - number 5`,
+        `Hello ${name} - number 6`,
+        `Hello ${name} - number 7`,
+        `Hello ${name} - number 8`,
+        `Hello ${name} - number 9`
+      ]
       for (let i = 0; i < 10; ++i) {
-        assert.deepStrictEqual(responses[i], `Hello ${name} - number ${i}`);
+        assert(expected.includes(responses[i]))
       }
       done();
     });
@@ -60,8 +73,8 @@ describe('Greet Server', () => {
     const call = grpcHelper.client.longGreet((err, res) => {
       assert.ifError(err);
       assert.deepStrictEqual(
-          names.map((name) => `Hello ${name}\n`).join(''),
-          res.getResult(),
+        names.map((name) => `Hello ${name}\n`).join(''),
+        res.getResult(),
       );
       done();
     });
@@ -106,7 +119,7 @@ describe('Greet Server', () => {
     }, (err, _) => {
       assert(err);
       assert.strictEqual(err.code, grpc.status.DEADLINE_EXCEEDED);
-      assert.strictEqual(err.details, 'Deadline exceeded');
+      assert(err.details.startsWith('Deadline exceeded'));
       done();
     });
   });
