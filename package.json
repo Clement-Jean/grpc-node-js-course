@@ -18,6 +18,7 @@
     "calculator:pb:win:gen": "powershell -ExecutionPolicy unrestricted ./scripts/gen.ps1 calculator",
 
     "blog:db": "cd blog; docker-compose up; cd ..",
+    "blog:win:db": "cd blog && docker-compose up && cd ..",
     "blog:server": "node blog/server/index.js",
     "blog:client": "node blog/client/index.js",
     "blog:pb:gen": "./scripts/gen.sh blog",
