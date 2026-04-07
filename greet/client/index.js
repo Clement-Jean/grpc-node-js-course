@@ -16,6 +16,7 @@ function doGreet(client) {
     }
 
     console.log(`Greet: ${res.getResult()}`);
+    client.close();
   });
 }
 
@@ -107,7 +108,7 @@ function main() {
   // doGreetEveryone(client);
   // doGreetWithDeadline(client, 5000);
   // doGreetWithDeadline(client, 1000);
-  client.close();
+  // client.close();
 }
 
 main();
